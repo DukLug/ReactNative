@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //challenge 1, 2
+        console.log("CHALLENGE 1, 2")
+
+        function BMICalculating(mass, height) {
+            let bmi = mass / (height * height)
+            return bmi
+        }
+
+        function CompareBMI(bmi1, bmi2) {
+            if (bmi1 > bmi2) {
+                return "larger"
+            }
+            return "smaller"
+        }
+
+        function Challenge1(markMass, markHeight, johnMass, johnHeight) {
+            markBMI = BMICalculating(markMass, markHeight)
+            johnBMI = BMICalculating(johnMass, johnHeight)
+            console.log("Mark mass and height: " + markMass + ";" + markHeight)
+            console.log("John mass and height: " + johnMass + ";" + johnHeight)
+            console.log(`Mark's BMI (${markBMI.toFixed(1)}) is ` + CompareBMI(markBMI, johnBMI) + ` than John's BMI (${johnBMI.toFixed(1)})`)
+        }
+
+        console.log("Data 1")
+        Challenge1(78, 1.69, 92, 1.95)
+        console.log("Data 2")
+        Challenge1(95, 1.88, 85, 1.76)
+
+        //challenge 3
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
