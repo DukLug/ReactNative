@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //#region challenge 1, 2
+        console.log("CHALLENGE 1, 2")
+
+        function BMICalculating(mass, height) {
+            let bmi = mass / (height * height)
+            return bmi
+        }
+
+        function CompareBMI(bmi1, bmi2) {
+            if (bmi1 > bmi2) {
+                return "larger"
+            }
+            return "smaller"
+        }
+
+        function Challenge1(markMass, markHeight, johnMass, johnHeight) {
+            markBMI = BMICalculating(markMass, markHeight)
+            johnBMI = BMICalculating(johnMass, johnHeight)
+            console.log("Mark mass and height: " + markMass + ";" + markHeight)
+            console.log("John mass and height: " + johnMass + ";" + johnHeight)
+            console.log(`Mark's BMI (${markBMI.toFixed(1)}) is ` + CompareBMI(markBMI, johnBMI) + ` than John's BMI (${johnBMI.toFixed(1)})`)
+        }
+
+        console.log("Data 1")
+        Challenge1(78, 1.69, 92, 1.95)
+        console.log("Data 2")
+        Challenge1(95, 1.88, 85, 1.76)
+        //#endregion
+        //#region challenge 3
+        console.log("CHALLENGE 3");
+
+        function calcAverage(score1, score2, score3) {
+            return (score1 + score2 + score3) / 3;
+        }
+
+        function challenge3() {
+            const dolphinsAvg = calcAverage(96, 108, 89);
+            const koalasAvg = calcAverage(88, 91, 110);
+            console.log(`Dolphins' average score: ${dolphinsAvg}`);
+            console.log(`Koalas' average score: ${koalasAvg}`);
+
+            if (dolphinsAvg > koalasAvg) {
+                console.log("Dolphins win the competition!");
+            } else if (koalasAvg > dolphinsAvg) {
+                console.log("Koalas win the competition!");
+            } else {
+                console.log("It's a draw!");
+            }
+        }
+
+        challenge3();
+        //#endregion
+        //#region challenge 4
+        console.log("CHALLENGE 4");
+
+        function calcTip(bill) {
+            return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+        }
+
+        function challenge4(bill) {
+            const tip = calcTip(bill);
+            const total = bill + tip;
+            console.log(`The bill was ${bill}, the tip was ${tip}, and the total value is ${total}`);
+        }
+
+        challenge4(275);
+        challenge4(40);
+        challenge4(430);
+
+        //#endregion
+        //#region challenge 5
+        console.log("CHALLENGE 5");
+
+        function checkWinner(avgDolphins, avgKoalas) {
+            if (avgDolphins >= 2 * avgKoalas) {
+                console.log(`Dolphins win (${avgDolphins} vs. ${avgKoalas})`);
+            } else if (avgKoalas >= 2 * avgDolphins) {
+                console.log(`Koalas win (${avgKoalas} vs. ${avgDolphins})`);
+            } else {
+                console.log("No team wins!");
+            }
+        }
+
+        function challenge5() {
+            let dolphinsAvg = calcAverage(44, 23, 71);
+            let koalasAvg = calcAverage(65, 54, 49);
+            checkWinner(dolphinsAvg, koalasAvg);
+
+            dolphinsAvg = calcAverage(85, 54, 41);
+            koalasAvg = calcAverage(23, 34, 27);
+            checkWinner(dolphinsAvg, koalasAvg);
+        }
+
+        challenge5();
+
+        //#endregion
+        //#region challenge 6
+        console.log("CHALLENGE 6");
+
+        const bills = [125, 555, 44];
+        const tips = [];
+        const totals = [];
+
+        bills.forEach(bill => {
+            const tip = calcTip(bill);
+            tips.push(tip);
+            totals.push(bill + tip);
+        });
+
+        console.log("Bills: " + bills);
+        console.log("Tips: " + tips);
+        console.log("Totals: " + totals);
+
+        //#endregion
+        //#region challenge 7
+        console.log("CHALLENGE 7");
+
+        const mark = {
+            fullName: 'Mark Miller',
+            mass: 78,
+            height: 1.69,
+            calcBMI: function () {
+                this.bmi = this.mass / (this.height ** 2);
+                return this.bmi;
+            }
+        };
+
+        const john = {
+            fullName: 'John Smith',
+            mass: 92,
+            height: 1.95,
+            calcBMI: function () {
+                this.bmi = this.mass / (this.height ** 2);
+                return this.bmi;
+            }
+        };
+
+        mark.calcBMI();
+        john.calcBMI();
+
+        if (mark.bmi > john.bmi) {
+            console.log(`${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s (${john.bmi})!`);
+        } else {
+            console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s (${mark.bmi})!`);
+        }
+
+        //#endregion
+        //#region challenge 8
+        console.log("CHALLENGE 8");
+
+        const bills8 = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+        const tips8 = [];
+        const totals8 = [];
+
+        for (let i = 0; i < bills8.length; i++) {
+            const tip = calcTip(bills8[i]);
+            tips8.push(tip);
+            totals8.push(bills8[i] + tip);
+        }
+
+        console.log("Bills: " + bills8);
+        console.log("Tips: " + tips8);
+        console.log("Totals: " + totals8);
+
+        //#endregion
+        //#region challenge 9
+        console.log("CHALLENGE 9");
+
+        function printForecast(arr) {
+            let str = '';
+            for (let i = 0; i < arr.length; i++) {
+                str += `... ${arr[i]}ºC in ${i + 1} days `;
+            }
+            console.log(str);
+        }
+
+        printForecast([17, 21, 23]);
+        printForecast([12, 5, -5, 0, 4]);
+
+        //#endregion
+        //#region challenge 10
+        //#endregion
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
